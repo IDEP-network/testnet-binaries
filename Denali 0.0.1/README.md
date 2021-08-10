@@ -1,6 +1,6 @@
 # Denali Test Network
 ## Full-Node Setup
-- Download the IDEP client binary
+- Download the IDEP client binary iond
 - Add permissions to the binary
 ```
 sudo chmod +x iond
@@ -10,7 +10,7 @@ sudo chmod +x iond
 ```
 iond -h
 ```
-### Node Initialization
+## Full-Node Initialization
 ```
 iond init <moniker> --chain-id Test-Denali
 iond keys add <accountname>
