@@ -18,7 +18,7 @@ iond keys add <accountname>
 - Save the mnemonic
 - Next make your way to the nodes config directory
 ```
-cd ~/.iond/config/
+cd ~/.ion/config/
 ```
 - Remove the genesis.json and replace it with the one provided in this repo
 ### Start the node
