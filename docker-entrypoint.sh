@@ -5,7 +5,6 @@ rm -f /root/.ion/
 /usr/local/bin/iond keys add ${accountname}
 mkdir -p /root/.ion/config/
 cp /root/genesis.json /root/.ion/config/genesis.json
-touch /root/.ion/.log
-/usr/local/bin/iond start --p2p.persistent_peers="${api}" >> /root/.ion/.log
+/usr/local/bin/iond start --p2p.persistent_peers="${api}"
 exec "$@"
 
