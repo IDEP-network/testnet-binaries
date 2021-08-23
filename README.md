@@ -1,4 +1,4 @@
-# About: testnet-binaries
+# testnet-binaries
 Binaries for Testnet Nodes
 
 
