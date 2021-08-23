@@ -14,7 +14,8 @@ Then log into the Node container with
 ```
 sudo docker exec -it node bash
 ```
-# Docker Installation: if you don't have docker on your host, you can simply install it with #
+# Docker Installation: #
+if you don't have docker on your host, you can simply install it with
 ```
 sudo curl -fsSL https://get.docker.com -o get-docker.sh && sudo sh get-docker.sh
 ```
