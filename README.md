@@ -18,8 +18,7 @@ Step 3: Check Node status
 ```
 iond status
 ```
-<hr>
-</hr>
+
 # Docker Installation: #
 if you don't have docker on your host, you can simply install it with
 ```
