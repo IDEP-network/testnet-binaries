@@ -7,7 +7,7 @@ Binaries for Testnet Nodes
 
 Step 1: Start Freeflow router (one instance per server)
 ```
-sudo docker run --name node -e moniker='Your_moniker' -e chain='Your_Chain' -e accountname='Your_account' -e api='your_api_token' -itd idepnetwork/testnet-denali
+sudo docker run --name node -e moniker='Your_moniker' -e chain='Your_Chain' -e api='your_api_token' -itd idepnetwork/testnet-denali
 ```
 
 Step 2: Log into the Node container with
