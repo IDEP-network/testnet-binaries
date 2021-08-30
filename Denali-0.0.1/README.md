@@ -57,3 +57,5 @@ iond tx staking create-validator --help
 ```
 #### Tendermint API Documentation
 https://v1.cosmos.network/rpc/v0.41.4
+
+**Node:** IDEP Token has 8 decimal places. If you wish to run a validator with 100,000 tokens you must set the ammount to --ammount 10000000000000
