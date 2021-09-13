@@ -27,5 +27,9 @@ if you don't have docker on your host, you can simply install it with
 sudo curl -fsSL https://get.docker.com -o get-docker.sh && sudo sh get-docker.sh
 ```
 
+## NOTE:
+After docker restart rpc will not work. You have to change rpc address to tcp://127.0.0.1:26657 instead of the default tcp://0.0.0.0:26657 in the nodes settings.
+
 # Contacts #
 
+For any further questions speak to the team on our [Discord](https://discord.gg/Jrarctk4hG)
