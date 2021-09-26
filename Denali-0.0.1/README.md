@@ -1,3 +1,5 @@
+<h1><p align="center"><img alt="Banner" src="Denali.png" /></p></h1>
+
 # Denali Test Network
 ## Full-Node Setup
 - Download the IDEP client binary iond
