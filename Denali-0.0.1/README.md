@@ -3,11 +3,19 @@
 # Denali Test Network
 ## Full-Node Setup
 - Download the IDEP client binary iond
+```
+git clone https://github.com/IDEP-network/testnet-binaries.git
+```
+
 - Add permissions to the binary
 ```
-sudo chmod +x iond
+sudo chmod +x /testnet-binaries/Denali-0.0.1/iond
 ```
 - Move/Copy the binary to /usr/local/bin/
+```
+cp /testnet-binaries/Denali-0.0.1/iond /usr/local/bin/
+```
+
 - Check the binary commands with
 ```
 iond -h
@@ -18,33 +26,58 @@ iond init <moniker> --chain-id Test-Denali
 iond keys add <accountname>
 ```
 - Save the mnemonic
-- Next make your way to the nodes config directory
+- Next make your way to the nodes config directory, remove the genesis.json and replace it with the one provided in this repo
 ```
 cd ~/.ion/config/
+rm genesis.json
+wget https://raw.githubusercontent.com/IDEP-network/testnet-binaries/main/Denali-0.0.1/genesis.json
 ```
-- Remove the genesis.json and replace it with the one provided in this repo
-### Start the node
+
+### Setup Service and start the node
 ```
-iond start --p2p.persistent_peers=95a7b71ab6ad8fad5f1ed3b49472683adea92cf1@142.93.65.220:26656,dc07da4be6ff285a1be2e9501fa92efef248d025@64.225.75.108:26656
+export USERNAME=$(whoami)
+sudo -E bash -c 'cat << EOF > /etc/systemd/system/iond.service
+[Unit]
+Description=Iond Daemon
+After=network-online.target
+
+[Service]
+User=$USERNAME
+ExecStart=/home/$USERNAME/go/bin/iond start --p2p.persistent_peers=95a7b71ab6ad8fad5f1ed3b49472683adea92cf1@142.93.65.220:26656,dc07da4be6ff285a1be2e9501fa92efef248d025@64.225.75.108:26656
+Restart=always
+RestartSec=3
+LimitNOFILE=4096
+
+[Install]
+WantedBy=multi-user.target
+EOF'
+```
+
+```
+sudo systemctl enable iond.service
+sudo systemctl start iond.service
 ```
 
 
 ### Validator-Setup
-- Once the Full Node is up and running. Please share your IDEP address with the IDEP team. We will fund your address.
-``` 
-You can @ or DM denny007#3282 on Discord.
-```
+- Once the Full Node is up and running you can fund your wallet through the faucet https://faucet.idep.network/
+
 - To get your Public Address
 ```
 iond keys list
 ```
-- To get the Validator-pub-key
-```
-iond tendermint show-validator
-```
 - Command to create a Validator
 ```
-iond tx staking create-validator --amount <amount> --from <from-address> --pubkey <validator-pub-key> --commission-rate 0.01 --commission-max-rate 0.05 --commission-max-change-rate 0.005 --min-self-delegation 1 --chain-id Test-Denali
+iond tx staking create-validator \
+    --amount 10000000000idep \
+    --commission-max-change-rate 0.01 \
+    --commission-max-rate 0.2 \
+    --commission-rate 0.1 \
+    --from <yourwallet> \
+    --min-self-delegation 1 \
+    --moniker NodeOne \
+    --pubkey $(iond tendermint show-validator) \
+    --chain-id Test-Denali
 ```
 
 ### FAQ
