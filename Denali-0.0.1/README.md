@@ -43,7 +43,7 @@ After=network-online.target
 
 [Service]
 User=$USERNAME
-ExecStart=/home/$USERNAME/go/bin/iond start --p2p.persistent_peers=95a7b71ab6ad8fad5f1ed3b49472683adea92cf1@142.93.65.220:26656,dc07da4be6ff285a1be2e9501fa92efef248d025@64.225.75.108:26656
+ExecStart=/home/$USERNAME/go/bin/iond start --p2p.persistent_peers=95a7b71ab6ad8fad5f1ed3b49472683adea92cf1@142.93.65.220:26656,dc07da4be6ff285a1be2e9501fa92efef248d025@64.225.75.108:26656, 3774f7f8f841e4b21500fe51dff453f7a6851afb@143.198.137.45:26656
 Restart=always
 RestartSec=3
 LimitNOFILE=4096
