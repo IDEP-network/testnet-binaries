@@ -50,7 +50,10 @@ Notes:
   
 </details>
 
-Example:
+<details>
+  
+  <summary>Example:</summary>
+
 ```
 iond tx uptake issue mightysword9 \
 	--from=idep1heg29v6tc7npk950pgd3phl5g2ll306pzy68ha \
@@ -73,7 +76,10 @@ iond tx uptake mint <collection-id> <item-id> \
 	--chain-id=<chain-id>
 ```
 
-Example:
+<details>
+  
+  <summary>Example:</summary>
+
 
 ```
 iond tx uptake mint mightysword9 sworditem001 \
@@ -83,6 +89,8 @@ iond tx uptake mint mightysword9 sworditem001 \
 	--from=idep1heg29v6tc7npk950pgd3phl5g2ll306pzy68ha  \
 	--chain-id=Test-Denali
 ```
+	
+</details>
 
 ### 3. Other transaction commands
 
@@ -94,7 +102,10 @@ iond tx uptake transfer <recipient> <collection-id> <item-id> \
 	--from=<from_address> \
 	--chain-id=<chain-id>
 ```
-Example:
+<details>
+  
+  <summary>Example:</summary>
+
 
 ```
 iond tx uptake transfer idep1heg29v6tc7npk950pgd3phl5g2ll306pzy453ha mightysword9 sworditem001 \
@@ -102,6 +113,8 @@ iond tx uptake transfer idep1heg29v6tc7npk950pgd3phl5g2ll306pzy453ha mightysword
 	--from=idep1heg29v6tc7npk950pgd3phl5g2ll306pzy68ha \
 	--chain-id Test-Denali
 ```
+
+</details>	
 
 #### 3.2 Burn NFT
 
@@ -111,7 +124,10 @@ iond tx uptake burn <collection-id> <item-id> \
 	--from=<from_address> \
 	--chain-id=<chain-id>
 ```
-Example:
+<details>
+  
+  <summary>Example:</summary>
+
 
 ```
 iond tx uptake burn mightysword9 sworditem001 \
@@ -120,6 +136,8 @@ iond tx uptake burn mightysword9 sworditem001 \
 	--chain-id Test-Denali
 ```
 
+</details>
+	
 ### 4. Query commands
 
 #### 4.1 Query all collections
@@ -133,55 +151,89 @@ iond query uptake denoms
 ```
 iond query uptake denom <collection-id>
 ```
-Example:
+<details>
+  
+  <summary>Example:</summary>
+
 ```
 iond query uptake denom mightysword9
 ```
 
+</details>
+	
 #### 4.3 Query the details of the collection and all NFTs of a collection
 
 ```
 iond query uptake collection <collection-id>
 ```
-Example:
+<details>
+  
+  <summary>Example:</summary>
+
 ```
 iond query uptake collection mightysword9
 ```
 
+</details>
+	
 #### 4.4 Query all collections/nfts of a spcific owner
 
 ```
 iond query uptake owner <owner-address>
 ```
-Example:
+<details>
+  
+  <summary>Example:</summary>
+
 ```
 iond query uptake owner idep1y346pfnqjwf335wqqxpm60aa2m9h6lm3ucxexu
 ```
+	
+</details>	
+
 #### 4.5 Query nfts of a spcific collection for a owner
 
 ```
 iond query uptake owner <owner-address> --denom-id=<collection-id>
 ```
-Example:
+<details>
+  
+  <summary>Example:</summary>
+
 ```
 iond q uptake owner idep1y346pfnqjwf335wqqxpm60aa2m9h6lm3ucxexu --denom-id=mightysword9
 ```
+	
+</details>	
+
 #### 4.6 Query the total supply for a collection
 
 ```
 iond query uptake supply <collection-id>
 ```
-Example:
+<details>
+  
+  <summary>Example:</summary>
+
 ```
 iond query uptake supply mightysword9
 ```
 
-#### 4.6 Query the details for a specific NFT
+	
+</details>
+	
+#### 4.7 Query the details for a specific NFT
 
 ```
 iond query uptake token <collection-id> <item-id>
 ```
-Example:
+<details>
+  
+  <summary>Example:</summary>
+
 ```
 iond query uptake token mightysword9 sworditem001
 ```
+
+	
+</details>
