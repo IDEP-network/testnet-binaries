@@ -1,8 +1,6 @@
 <h1><p align="center"><img alt="Banner" src="Denali.png" /></p></h1>
 
-# Denali Test Network
-
-## How to use the UPTAKE module to create NFT's
+# How to use the UPTAKE module to create NFT's in Denali Test Network
 
 ### 1. Create a Collection (Denomination)
 
@@ -50,6 +48,8 @@ Notes:
   
 </details>
 
+
+
 <details>
   
   <summary>Example:</summary>
@@ -62,6 +62,8 @@ iond tx uptake issue mightysword9 \
 	--chain-id=Test-Denali
 ```
 
+</details>
+	
 ### 2. Create NFTs
 
 After creating the collection we can create the corresponding NFTs. Similar to the collection, NFTs have an unique name and id. Furthermore you have to define the recipient of the NFT.
