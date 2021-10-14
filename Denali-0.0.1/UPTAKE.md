@@ -4,4 +4,71 @@
 
 ## How to use the UPTAKE module to create NFT's
 
-### Create a Collection
+### 1. Create a Collection (Denomination)
+
+Before you can create NFTs, you have to create a collection which your NFTs will belong to. Every collection requires both a unique name and id. 
+To define the metadata for your NFT, you can either provide its content in the transcation itslef or set the path to the schema.json.
+
+```
+iond tx uptake issue <collection-id> \
+	--name=<collection-name> \
+	--schema=<schema-content or path/to/schema.json> \	
+	--from= <from_address> \
+	--chain-id=Test-Denali
+```
+
+Notes:
+- `<collection-name>` alphanumeric value, min. 4 characters, has to start with a lower case letter
+- `<collection-id>` alphanumeric value, min. 4 characters
+- `<from_address>` your wallet address
+- `schema` see the example for an erc721 schema below
+
+<details>
+  
+  <summary>ERC721 Metadata JSON Schema</summary>
+  
+  ```
+  {
+    "title": "Asset Metadata",
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string",
+            "description": "Identifies the asset to which this NFT represents",
+        },
+        "description": {
+            "type": "string",
+            "description": "Describes the asset to which this NFT represents",
+        },
+        "image": {
+            "type": "string",
+            "description": "A URI pointing to a resource with mime type image/* representing the asset to which this NFT represents. Consider making any images at a width between 320 and 1080 pixels and aspect ratio between 1.91:1 and 4:5 inclusive.",
+        }
+    }
+}
+  ```
+  
+</details>
+
+Example:
+```
+iond tx uptake issue mightysword9 \
+	--from=idep1heg29v6tc7npk950pgd3phl5g2ll306pzy68ha \
+	--name=MightySword \
+	--schema="schema.json" \
+	--chain-id Test-Denali
+```
+
+### 2. Create NFT
+
+After creating the collection we can create the corresponding NFTs. Similar to the collection, NFTs have an unique name and id. Furthermore you have to define the recipient of the NFT.
+Through the uri flag, you can define the address where the metadata for this specific NFT is stored. Metadata can be either stored centralized (your own api) or dezentralized (e.g. ipfs.io)
+
+```
+iond tx uptake mint <collection-id> <item-id> \
+	--name <item-name> \
+  --uri <uri>
+	--from <from_address> \
+	--recipient <owner_address> \
+	--chain-id <chain-id>
+  ```
