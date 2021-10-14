@@ -86,7 +86,7 @@ iond tx uptake mint mightysword9 sworditem001 \
 
 ### 3. Other transaction commands
 
-### 3.1 Transfer NFT
+#### 3.1 Transfer NFT
 
 ```
 iond tx uptake transfer <recipient> <collection-id> <item-id> \
@@ -101,4 +101,87 @@ iond tx uptake transfer idep1heg29v6tc7npk950pgd3phl5g2ll306pzy453ha mightysword
 	--uri=ipfs://ipfs2askmak2344dkabmna0 \
 	--from=idep1heg29v6tc7npk950pgd3phl5g2ll306pzy68ha \
 	--chain-id Test-Denali
+```
+
+#### 3.2 Burn NFT
+
+```
+iond tx uptake burn <collection-id> <item-id> \
+	--uri=<uri> \
+	--from=<from_address> \
+	--chain-id=<chain-id>
+```
+Example:
+
+```
+iond tx uptake burn mightysword9 sworditem001 \
+	--uri=ipfs://ipfs2askmak2344dkabmna0 \
+	--from=idep1heg29v6tc7npk950pgd3phl5g2ll306pzy68ha \
+	--chain-id Test-Denali
+```
+
+### 4. Query commands
+
+#### 4.1 Query all collections
+
+```
+iond query uptake denoms
+```
+
+#### 4.2 Query the details of a collection
+
+```
+iond query uptake denom <collection-id>
+```
+Example:
+```
+iond query uptake denom mightysword9
+```
+
+#### 4.3 Query the details of the collection and all NFTs of a collection
+
+```
+iond query uptake collection <collection-id>
+```
+Example:
+```
+iond query uptake collection mightysword9
+```
+
+#### 4.4 Query all collections/nfts of a spcific owner
+
+```
+iond query uptake owner <owner-address>
+```
+Example:
+```
+iond query uptake owner idep1y346pfnqjwf335wqqxpm60aa2m9h6lm3ucxexu
+```
+#### 4.5 Query nfts of a spcific collection for a owner
+
+```
+iond query uptake owner <owner-address> --denom-id=<collection-id>
+```
+Example:
+```
+iond q uptake owner idep1y346pfnqjwf335wqqxpm60aa2m9h6lm3ucxexu --denom-id=mightysword9
+```
+#### 4.6 Query the total supply for a collection
+
+```
+iond query uptake supply <collection-id>
+```
+Example:
+```
+iond query uptake supply mightysword9
+```
+
+#### 4.6 Query the details for a specific NFT
+
+```
+iond query uptake token <collection-id> <item-id>
+```
+Example:
+```
+iond query uptake token mightysword9 sworditem001
 ```
