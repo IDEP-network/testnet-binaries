@@ -13,7 +13,7 @@ To define the metadata for your NFT, you can either provide its content in the t
 iond tx uptake issue <collection-id> \
 	--name=<collection-name> \
 	--schema=<schema-content or path/to/schema.json> \	
-	--from= <from_address> \
+	--from=<from_address> \
 	--chain-id=Test-Denali
 ```
 
@@ -56,19 +56,49 @@ iond tx uptake issue mightysword9 \
 	--from=idep1heg29v6tc7npk950pgd3phl5g2ll306pzy68ha \
 	--name=MightySword \
 	--schema="schema.json" \
-	--chain-id Test-Denali
+	--chain-id=Test-Denali
 ```
 
-### 2. Create NFT
+### 2. Create NFTs
 
 After creating the collection we can create the corresponding NFTs. Similar to the collection, NFTs have an unique name and id. Furthermore you have to define the recipient of the NFT.
-Through the uri flag, you can define the address where the metadata for this specific NFT is stored. Metadata can be either stored centralized (your own api) or dezentralized (e.g. ipfs.io)
+Through the uri flag, you can define the address where the metadata for this specific NFT is stored. Metadata can be either stored centralized (your own api) or dezentralized (e.g. [ipfs.io])
 
 ```
 iond tx uptake mint <collection-id> <item-id> \
-	--name <item-name> \
-  --uri <uri>
-	--from <from_address> \
-	--recipient <owner_address> \
-	--chain-id <chain-id>
-  ```
+	--name=<item-name> \
+  	--uri=<uri>
+	--from=<from_address> \
+	--recipient=<owner_address> \
+	--chain-id=<chain-id>
+```
+
+Example:
+
+```
+iond tx uptake mint mightysword9 sworditem001 \
+	--name=SwordItem \
+	--uri=ipfs://ipfs2askmak2344dkabmna0
+	--recipient=idep1heg29v6tc7npk950pgd3phl5g2ll306pzy68ha \
+	--from=idep1heg29v6tc7npk950pgd3phl5g2ll306pzy68ha  \
+	--chain-id=Test-Denali
+```
+
+### 3. Other transaction commands
+
+### 3.1 Transfer NFT
+
+```
+iond tx uptake transfer <recipient> <collection-id> <item-id> \
+	--uri=<uri> \
+	--from=<from_address> \
+	--chain-id=<chain-id>
+```
+Example:
+
+```
+iond tx uptake transfer idep1heg29v6tc7npk950pgd3phl5g2ll306pzy453ha mightysword9 sworditem001 \
+	--uri=ipfs://ipfs2askmak2344dkabmna0 \
+	--from=idep1heg29v6tc7npk950pgd3phl5g2ll306pzy68ha \
+	--chain-id Test-Denali
+```
