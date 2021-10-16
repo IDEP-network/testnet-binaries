@@ -13,7 +13,7 @@ sudo chmod +x /testnet-binaries/Denali-0.0.1/iond
 ```
 - Move/Copy the binary to /usr/local/bin/
 ```
-cp /testnet-binaries/Denali-0.0.1/iond /usr/local/bin/
+cp testnet-binaries/Denali-0.0.1/iond /usr/local/bin/
 ```
 
 - Check the binary commands with
