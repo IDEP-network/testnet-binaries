@@ -81,12 +81,14 @@ iond tx staking create-validator \
     --commission-max-change-rate 0.01 \
     --commission-max-rate 0.2 \
     --commission-rate 0.1 \
-    --from <yourwallet> \
+    --from <YourWalletAddress> \
     --min-self-delegation 1 \
     --moniker <YourMoniker> \
     --pubkey $(iond tendermint show-validator) \
     --chain-id Test-Denali
 ```
+
+
 
 ### FAQ
 #### Example of a command to create a Validator
