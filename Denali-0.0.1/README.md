@@ -26,9 +26,15 @@ iond init <moniker> --chain-id Test-Denali
 iond keys add <accountname>
 ```
 - Save the mnemonic
+- Find then add your IP address in the external_address field in the config.toml file
+```
+external_address=$(curl -s ifconfig.me):26656
+sed -i.bak -e "s/^external_address = \"\"/external_address = \"$external_address\"/" $HOME/.ion/config/config.toml
+```
 - Next make your way to the nodes config directory, remove the genesis.json and replace it with the one provided in this repo
 ```
 cd ~/.ion/config/
+
 rm genesis.json
 wget https://raw.githubusercontent.com/IDEP-network/testnet-binaries/main/Denali-0.0.1/genesis.json
 ```
