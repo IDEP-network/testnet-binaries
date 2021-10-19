@@ -66,19 +66,29 @@ sudo systemctl start iond.service
 ```
 iond keys list
 ```
-- Command to create a Validator
+- Create a Validator
+
+Before you can create your Validator, your node has to be synced up to the latest block of the chain. You can check this by:
+
+```
+iond status
+```
+If `catching_up` is `false` you are good to execute:
+
 ```
 iond tx staking create-validator \
     --amount 10000000000idep \
     --commission-max-change-rate 0.01 \
     --commission-max-rate 0.2 \
     --commission-rate 0.1 \
-    --from <yourwallet> \
+    --from <YourWalletAddress> \
     --min-self-delegation 1 \
-    --moniker NodeOne \
+    --moniker <YourMoniker> \
     --pubkey $(iond tendermint show-validator) \
     --chain-id Test-Denali
 ```
+
+
 
 ### FAQ
 #### Example of a command to create a Validator
